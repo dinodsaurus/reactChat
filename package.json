@@ -1,0 +1,25 @@
+{
+  "name": "reactChat",
+  "version": "0.5.0",
+  "description": "",
+  "main": "app/js/main.js",
+  "dependencies": {
+    "autoprefixer-core": "^5.1.7",
+    "babelify": "^5.0.4",
+    "browser-sync": "^2.4.0",
+    "browserify": "^9.0.3",
+    "gulp": "^3.8.11",
+    "gulp-flatten": "0.0.4",
+    "gulp-load-plugins": "^0.9.0",
+    "gulp-postcss": "^4.0.3",
+    "gulp-sass": "^1.3.3",
+    "react": "^0.13.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dino Trojak",
+  "license": "MIT"
+}
