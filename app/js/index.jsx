@@ -12,32 +12,26 @@ class Chat extends React.Component {
     };
   }
   componentDidMount(){
-    var ws = new WebSocket("ws://localhost:8080");
+    var ws = new WebSocket("ws://192.168.0.59:8080");
     this.setState({ws: ws});
     ws.onmessage = this.recivedMessage.bind(this);
   }
-  submitMessage(message){
-    var msg = JSON.stringify(message);
-    this.state.ws.send(msg);
-  }
   recivedMessage(message){
     var msg = JSON.parse(message.data);
-    this.setState({messages: this.state.messages.concat([msg])});
+    this.setState({messages: this.state.messages.concat(msg)});
   }
   render() {
-    var ws = this.submitMessage.bind(this);
     return (
       <div className="jumbotron">
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <h2 className="naslov">Awesome chat made using react and ECMASCRIPT6</h2>
+              <h2 className="naslov">Awesome chat using react and ECMASCRIPT6</h2>
             </div>
           </div>
-          <ChatForm submitMsg={ws}/>
+          <ChatForm ws={this.state.ws}/>
           <ChatList messages={this.state.messages}/>
         </div>
-
       </div>
     )
   }

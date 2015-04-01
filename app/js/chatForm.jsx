@@ -25,12 +25,13 @@ class ChatForm extends React.Component {
       message: "",
       name: ""
     });
-    this.props.submitMsg(msg);
+    var txt = JSON.stringify(msg);
+    this.props.ws.send(txt);
   }
   render() {
     return (
       <div className="row">
-        <form className="col-xs-6" onSubmit={this.submitMsg.bind(this)}>
+        <form className="col-md-6" onSubmit={this.submitMsg.bind(this)}>
           <div className="form-group">
             <label>Name</label>
             <input type="text" className="form-control" placeholder="Name" value={this.state.name} onChange={this.handleNameChange.bind(this)}/>
@@ -40,12 +41,12 @@ class ChatForm extends React.Component {
             <input type="text" className="form-control" placeholder="Message" value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
           </div>
 
-          <button type="submit" className="btn btn-success">Submit</button>
+          <button type="submit" className="col-md-6 col-xs-12 btn btn-success">Submit</button>
         </form>
       </div>
     )
   }
 }
-ChatForm.propTypes = { submitMsg: React.PropTypes.func };
+ChatForm.propTypes = { ws: React.PropTypes.object };
 
 export default ChatForm;

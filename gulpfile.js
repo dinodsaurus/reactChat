@@ -38,6 +38,7 @@ gulp.task("serve",  ["styles", "scripts"],function () {
   browserSync({
     notify: false,
     port: 9000,
+    ghostMode: false,
     server: {
       baseDir: [".tmp", "app"],
       routes: {
@@ -45,7 +46,6 @@ gulp.task("serve",  ["styles", "scripts"],function () {
       }
     }
   });
-
   // watch for changes
   gulp.watch([
     "app/*.html",
